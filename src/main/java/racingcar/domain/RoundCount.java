@@ -7,7 +7,7 @@ public class RoundCount {
     }
 
     private void validate(String count) {
-        if(!isNumeric(count)) {
+        if (!isNumeric(count)) {
             throw new IllegalArgumentException();
         }
     }
