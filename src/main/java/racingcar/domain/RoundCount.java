@@ -2,12 +2,18 @@ package racingcar.domain;
 
 public class RoundCount {
     
+    public static final int MIN_COUNT = 0;
+
     RoundCount(String count) {
         validate(count);
     }
 
     private void validate(String count) {
         if (!isNumeric(count)) {
+            throw new IllegalArgumentException();
+        }
+
+        if (isNegativeNumber(Integer.parseInt(count))) {
             throw new IllegalArgumentException();
         }
     }
@@ -20,6 +26,10 @@ public class RoundCount {
         }
         
         return true;
+    }
+
+    private boolean isNegativeNumber(int count) {
+        return (count < MIN_COUNT);
     }
 
 }

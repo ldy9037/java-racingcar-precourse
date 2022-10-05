@@ -16,4 +16,15 @@ public class RoundCountTest {
         assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> new RoundCount(count));
     }
+
+    @Test
+    @DisplayName("음수를 입력하면 예외가 발생한다")
+    void 생성시_음수_유효성검사() {
+        // given
+        String count = "-1";
+
+        // when & then
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> new RoundCount(count));
+    }
 }
