@@ -2,6 +2,7 @@ package racingcar.domain;
 
 public class CarName {
     
+    public static final int MIN_LENGTH = 1;
     public static final int MAX_LENGTH = 5;
 
     CarName(String name) {
@@ -15,7 +16,7 @@ public class CarName {
     }
 
     private boolean isValidLength(String name) {
-        return (name.length() <= MAX_LENGTH);
+        return (name.length() >= MIN_LENGTH && name.length() <= MAX_LENGTH);
     }
 
 }
