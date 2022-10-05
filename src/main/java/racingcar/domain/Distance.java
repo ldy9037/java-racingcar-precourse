@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.Objects;
+
 public class Distance {
     
     public static final int MIN_DISTANCE = 0;
@@ -19,5 +21,25 @@ public class Distance {
 
     private boolean isNegativeNumber(int distance) {
         return (distance < MIN_DISTANCE);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+
+        if (!(obj instanceof Distance)) {
+            return false;
+        }
+
+        Distance that = (Distance) obj;
+
+        return (this.distance == that.distance);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(distance);
     }
 }
