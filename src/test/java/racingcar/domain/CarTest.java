@@ -16,17 +16,16 @@ public class CarTest {
     }
 
     @Test
-    @DisplayName("자동차는 이동할 수 있다.")
+    @DisplayName("숫자가 4이상이면 전진한다.")
     void 이동시_이동거리_증가() {
         // given 
         Distance distance = new Distance();
 
         // when
-        car.move();
+        car.move(new JudgmentNumber(Car.MOVE_CONDITION_NUMBER));
         distance.plus(Car.SPEED);
         
         // then 
         assertThat(car.getDistance()).isEqualTo(distance);
     }
-
 }
