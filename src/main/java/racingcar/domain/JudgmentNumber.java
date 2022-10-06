@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class JudgmentNumber {
 
     public static final int MIN_NUMBER = 0;
@@ -7,9 +9,17 @@ public class JudgmentNumber {
 
     private final int number;
 
-    JudgmentNumber(int number) {
+    private JudgmentNumber(int number) {
         validate(number);
         this.number = number;
+    }
+
+    public static JudgmentNumber from(int number) {
+        return new JudgmentNumber(number);
+    }
+
+    public static JudgmentNumber newJudgmentNumber() {
+        return new JudgmentNumber(Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER));
     }
 
     public int getNumber() {
