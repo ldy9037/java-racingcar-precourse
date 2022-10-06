@@ -10,4 +10,8 @@ public class MainController {
     public void requestCarNameForm() {
         MainView.carNameForm(this);
     }
+
+    public void requestRoundCountForm() {
+        MainView.roundCountForm(this);
+    }
 }

@@ -4,7 +4,7 @@ public class RoundCount {
     
     public static final int MIN_COUNT = 0;
 
-    RoundCount(String count) {
+    public RoundCount(String count) {
         validate(count);
     }
 
