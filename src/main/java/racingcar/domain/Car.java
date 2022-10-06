@@ -8,7 +8,7 @@ public class Car {
     private final CarName carName;
     private final Distance distance = new Distance();
 
-    Car(CarName carName) {
+    public Car(CarName carName) {
         this.carName = carName;
     }
 
