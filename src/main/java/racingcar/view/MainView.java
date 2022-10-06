@@ -2,15 +2,13 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.controller.MainController;
-import racingcar.domain.Car;
-import racingcar.domain.CarName;
+import racingcar.domain.Cars;
 
 public class MainView {
     public static void carNameForm(MainController mainController) {
         printCarNameFormMessage();
-        
-        CarName carName = new CarName(Console.readLine());
-        Car car = new Car(carName);
+
+        Cars.from(Console.readLine());
     }    
 
     private static void printCarNameFormMessage() {

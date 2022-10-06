@@ -17,8 +17,8 @@ public class JudgmentNumberTest {
         
         // then
         assertThat(judgmentNumber.getNumber())
-                .isGreaterThan(JudgmentNumber.MIN_NUMBER)
-                .isLessThan(JudgmentNumber.MAX_NUMBER);
+                .isGreaterThanOrEqualTo(JudgmentNumber.MIN_NUMBER)
+                .isLessThanOrEqualTo(JudgmentNumber.MAX_NUMBER);
     }
 
     @ParameterizedTest(name = "number: {arguments}")

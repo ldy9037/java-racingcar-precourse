@@ -12,7 +12,7 @@ public class CarTest {
 
     @BeforeEach
     void setUp() {
-        car = new Car(new CarName("car"));
+        car = Car.from("car");
     }
 
     @Test

@@ -8,8 +8,12 @@ public class Car {
     private final CarName carName;
     private final Distance distance = new Distance();
 
-    public Car(CarName carName) {
+    private Car(CarName carName) {
         this.carName = carName;
+    }
+
+    public static Car from(String carName) {
+        return new Car(new CarName(carName));
     }
 
     public void move(JudgmentNumber judgmentNumber) {
