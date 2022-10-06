@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -16,5 +17,14 @@ public class JudgmentNumberTest {
         
         // then
         assertThat(judgmentNumber.getNumber()).isEqualTo(number);
+    }
+
+    @ParameterizedTest(name = "number: {arguments}")
+    @ValueSource(ints = {JudgmentNumber.MIN_NUMBER - 1, JudgmentNumber.MAX_NUMBER + 1})
+    @DisplayName("0 ~ 9 사이의 숫자가 아니면 예외가 발생한다.")
+    void 특범위를_벗어난_숫자_생성(int number) {
+        // when & then
+        assertThatExceptionOfType(IllegalArgumentException.class)
+                .isThrownBy(() -> new JudgmentNumber(number));
     }
 }
