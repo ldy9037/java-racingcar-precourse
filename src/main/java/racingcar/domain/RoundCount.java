@@ -10,11 +10,13 @@ public class RoundCount {
 
     private void validate(String count) {
         if (!isNumeric(count)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(
+                    ErrorMessage.NOT_DIGIT_ERROR.getMessage());
         }
 
         if (isNegativeNumber(Integer.parseInt(count))) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(
+                    ErrorMessage.NEGATIVE_NUMBER_ERROR.getMessage(MIN_COUNT));
         }
     }
 
@@ -31,5 +33,4 @@ public class RoundCount {
     private boolean isNegativeNumber(int count) {
         return (count < MIN_COUNT);
     }
-
 }

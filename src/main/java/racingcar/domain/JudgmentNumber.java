@@ -28,7 +28,8 @@ public class JudgmentNumber {
 
     private void validate(int number) {
         if (!isValidRange(number)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(
+                    ErrorMessage.OUT_OF_RANGE_NUMBER_ERROR.getMessage(MIN_NUMBER, MAX_NUMBER));
         }
     }
 

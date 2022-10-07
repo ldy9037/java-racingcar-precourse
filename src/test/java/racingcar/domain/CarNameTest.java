@@ -13,6 +13,11 @@ public class CarNameTest {
     void 생성시_길이_유효성검사(String name) {
         // when & then 
         assertThatExceptionOfType(IllegalArgumentException.class)
-                .isThrownBy(() -> new CarName(name));
+                .isThrownBy(() -> new CarName(name))
+                .withMessageContaining(ErrorMessage.LEVEL)
+                .withMessage(
+                        ErrorMessage
+                                .OUT_OF_RANGE_NAME_ERROR
+                                .getMessage(CarName.MIN_LENGTH, CarName.MAX_LENGTH));
     }
 }

@@ -27,6 +27,11 @@ public class JudgmentNumberTest {
     void 특범위를_벗어난_숫자_생성(int number) {
         // when & then
         assertThatExceptionOfType(IllegalArgumentException.class)
-                .isThrownBy(() -> JudgmentNumber.from(number));
+                .isThrownBy(() -> JudgmentNumber.from(number))
+                .withMessageContaining(ErrorMessage.LEVEL)
+                .withMessage(
+                        ErrorMessage
+                                .OUT_OF_RANGE_NUMBER_ERROR
+                                .getMessage(JudgmentNumber.MIN_NUMBER, JudgmentNumber.MAX_NUMBER));
     }
 }

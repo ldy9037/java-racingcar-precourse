@@ -15,7 +15,8 @@ public class Distance {
     
     private void validate(int distance) {
         if (isNegativeNumber(distance)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(
+                    ErrorMessage.NEGATIVE_NUMBER_ERROR.getMessage());
         }
     }
 

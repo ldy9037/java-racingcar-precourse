@@ -11,12 +11,12 @@ public class CarName {
 
     private void validate(String name) {
         if (!isValidLength(name)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(
+                    ErrorMessage.OUT_OF_RANGE_NAME_ERROR.getMessage(MIN_LENGTH, MAX_LENGTH));
         }
     }
 
     private boolean isValidLength(String name) {
         return (name.length() >= MIN_LENGTH && name.length() <= MAX_LENGTH);
     }
-
 }

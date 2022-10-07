@@ -14,6 +14,11 @@ public class DistanceTest {
 
         // then
         assertThatExceptionOfType(IllegalArgumentException.class)
-                .isThrownBy(() -> distance.plus(Distance.MIN_DISTANCE - 1));
+                .isThrownBy(() -> distance.plus(Distance.MIN_DISTANCE - 1))
+                .withMessageContaining(ErrorMessage.LEVEL)
+                .withMessage(
+                        ErrorMessage
+                                .NEGATIVE_NUMBER_ERROR
+                                .getMessage());
     }
 }

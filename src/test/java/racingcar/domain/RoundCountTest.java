@@ -14,7 +14,9 @@ public class RoundCountTest {
 
         // when & then
         assertThatExceptionOfType(IllegalArgumentException.class)
-                .isThrownBy(() -> new RoundCount(count));
+                .isThrownBy(() -> new RoundCount(count))
+                .withMessageContaining(ErrorMessage.LEVEL)
+                .withMessage(ErrorMessage.NOT_DIGIT_ERROR.getMessage());
     }
 
     @Test
@@ -25,6 +27,11 @@ public class RoundCountTest {
 
         // when & then
         assertThatExceptionOfType(IllegalArgumentException.class)
-                .isThrownBy(() -> new RoundCount(count));
+                .isThrownBy(() -> new RoundCount(count))
+                .withMessageContaining(ErrorMessage.LEVEL)
+                .withMessage(
+                        ErrorMessage
+                                .NEGATIVE_NUMBER_ERROR
+                                .getMessage(RoundCount.MIN_COUNT));
     }
 }
