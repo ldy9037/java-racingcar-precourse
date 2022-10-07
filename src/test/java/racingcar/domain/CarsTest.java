@@ -2,7 +2,10 @@ package racingcar.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
+
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -16,5 +19,19 @@ public class CarsTest {
 
         // then
         assertThat(cars.size()).isEqualTo(expected);
+    }
+
+    @Test
+    @DisplayName("진행상황을 확인한다")
+    void 자동차_전체현황_확인() {
+        // given
+        String names = "car1,car2";
+        Cars cars = Cars.from(names);
+
+        // when
+        List<String> status = cars.getStatusList();
+
+        // then
+        assertThat(status).hasSize(cars.size());        
     }
 }

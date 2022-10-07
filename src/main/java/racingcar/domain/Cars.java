@@ -27,6 +27,16 @@ public class Cars {
         }
     }
 
+    public List<String> getStatusList() {
+        List<String> result = new ArrayList<>();
+        
+        for (Car car : cars) {
+            result.add(car.getStatus());
+        }
+
+        return result;
+    }
+
     public int size() {
         return cars.size();
     }
