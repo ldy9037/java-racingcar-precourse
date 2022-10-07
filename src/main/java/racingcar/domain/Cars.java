@@ -21,6 +21,12 @@ public class Cars {
         return new Cars(cars);
     }
 
+    public void moveAllByRandom() {
+        for (Car car : cars) {
+            car.move(JudgmentNumber.newJudgmentNumber());
+        }
+    }
+
     public int size() {
         return cars.size();
     }
