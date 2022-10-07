@@ -9,10 +9,12 @@ import org.junit.jupiter.api.Test;
 public class CarTest {
     
     private Car car;
+    private String name;
 
     @BeforeEach
     void setUp() {
-        car = Car.from("car");
+        name = "car";
+        car = Car.from(name);
     }
 
     @Test
@@ -27,5 +29,15 @@ public class CarTest {
         
         // then 
         assertThat(car.getDistance()).isEqualTo(distance);
+    }
+
+    @Test
+    @DisplayName("자동차 이름을 확인한다.")
+    void 자동차이름_확인() {
+        // when 
+        CarName carName = car.getCarName();
+
+        // then
+        assertThat(carName.getName()).isEqualTo(name);
     }
 }

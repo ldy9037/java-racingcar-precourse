@@ -22,6 +22,10 @@ public class Car {
         } 
     }
 
+    public CarName getCarName() {
+        return carName;
+    }
+
     public Distance getDistance() {
         return distance;
     }
