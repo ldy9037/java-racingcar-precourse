@@ -5,7 +5,8 @@ import java.util.Objects;
 public class Distance {
     
     public static final int MIN_DISTANCE = 0;
-    
+    public static final String PROGRESS_BAR_TYPE = "-";
+
     private int distance = 0;
 
     public void plus(int distance) {
@@ -13,6 +14,16 @@ public class Distance {
         this.distance += distance;
     }
     
+    public String getProgressBar() {
+        String result = "";
+        
+        for (int i = 0; i < distance; i++) {
+            result += PROGRESS_BAR_TYPE;
+        }
+
+        return result;
+    }
+
     private void validate(int distance) {
         if (isNegativeNumber(distance)) {
             throw new IllegalArgumentException(
