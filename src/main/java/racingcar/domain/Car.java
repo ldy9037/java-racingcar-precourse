@@ -22,12 +22,12 @@ public class Car {
         } 
     }
 
-    public CarName getCarName() {
-        return carName;
-    }
-
     public Distance getDistance() {
         return distance;
+    }
+
+    public String getStatus() {
+        return String.format("%s : %s", carName.getName(), distance.getProgressBar());
     }
 
     private boolean canMove(JudgmentNumber judgmentNumber) {

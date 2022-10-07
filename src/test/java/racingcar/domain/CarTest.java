@@ -32,12 +32,12 @@ public class CarTest {
     }
 
     @Test
-    @DisplayName("자동차 이름을 확인한다.")
-    void 자동차이름_확인() {
-        // when 
-        CarName carName = car.getCarName();
-
+    @DisplayName("자동차의 상태를 확인한다.")
+    void 자동차상태_확인() {
+        // when
+        String status = car.getStatus();
+        
         // then
-        assertThat(carName.getName()).isEqualTo(name);
+        assertThat(status).contains(name);
     }
 }
