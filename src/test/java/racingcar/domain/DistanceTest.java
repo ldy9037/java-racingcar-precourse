@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class DistanceTest {
     @Test
@@ -37,5 +39,20 @@ public class DistanceTest {
         assertThat(distance.getProgressBar())
                 .hasSize(move)
                 .contains(Distance.PROGRESS_BAR_TYPE);
+    }
+
+    @ParameterizedTest(name = "operand1: {0}, operand2: {1}, expected: {2}")
+    @CsvSource(value = {"2:1:1", "2:2:0", "2:3:-1"}, delimiter = ':')
+    @DisplayName("이동거리를 비교한다")
+    void 이동거리를_비교(int operand1, int operand2, int expected) {
+        // given
+        Distance distance1 = new Distance();
+        Distance distance2 = new Distance();
+
+        // when
+        distance1.plus(operand1);
+        distance2.plus(operand2);
+
+        assertThat((distance1.compareTo(distance2))).isEqualTo(expected);
     }
 }
