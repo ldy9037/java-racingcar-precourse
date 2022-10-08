@@ -7,8 +7,11 @@ import camp.nextstep.edu.missionutils.Console;
 import racingcar.controller.MainController;
 import racingcar.domain.Cars;
 import racingcar.domain.RoundCount;
+import racingcar.domain.Winners;
 
 public class MainView {
+    public static final String JOIN_STRING = ", ";
+
     public static void gameInfoForm(MainController mainController) {
         mainController.requestSetGameInfo(carNameForm(), roundCountForm());
     }
@@ -26,6 +29,11 @@ public class MainView {
         printNewLine();
 
         mainController.requestStartRound();
+    }
+
+    public static void printWinners(Winners winners) {
+        System.out.print("최종 우승자 : ");
+        System.out.println(String.join(JOIN_STRING, winners.getNames()));
     }
 
     private static Cars carNameForm() {

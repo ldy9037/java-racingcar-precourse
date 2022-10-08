@@ -27,6 +27,10 @@ public class Game {
         return cars.getStatusList();
     }
 
+    public Winners getWinners() {
+        return new Winners(cars.getLongestDistanceCars());
+    }
+
     private void validateRound() {
         if (isOver()) {
             throw new IllegalStateException(

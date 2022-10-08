@@ -37,6 +37,6 @@ public class MainController {
     }
 
     private void requestWinnerList() {
-        
+        MainView.printWinners(game.getWinners());
     }
 }
