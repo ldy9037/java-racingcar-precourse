@@ -20,10 +20,23 @@ public class MainController {
     public void requestSetGameInfo(Cars cars, RoundCount roundCount){
         game = new Game(cars, roundCount);
 
-        requestStartRound();
+        requestPrintResult();
+    }
+
+    private void requestPrintResult() {
+        MainView.printResultInfo(this);
     }
 
     public void requestStartRound() {
-        MainView.printStatus(game.round());
+        if (game.isOver()) {
+            requestWinnerList();
+            return ;
+        }
+
+        MainView.printStatus(this, game.round());
+    }
+
+    private void requestWinnerList() {
+        
     }
 }

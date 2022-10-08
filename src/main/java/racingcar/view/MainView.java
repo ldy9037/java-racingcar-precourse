@@ -13,10 +13,19 @@ public class MainView {
         mainController.requestSetGameInfo(carNameForm(), roundCountForm());
     }
 
-    public static void printStatus(List<String> statusList) {
+    public static void printResultInfo(MainController mainController) {
+        System.out.println("실행 결과");
+        mainController.requestStartRound();
+    }
+
+    public static void printStatus(MainController mainController, List<String> statusList) {
         for (String status : statusList) {
             System.out.println(status);
         }
+
+        printNewLine();
+
+        mainController.requestStartRound();
     }
 
     private static Cars carNameForm() {
