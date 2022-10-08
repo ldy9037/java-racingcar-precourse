@@ -1,14 +1,19 @@
 package racingcar.domain;
 
+import java.util.List;
+
 public class Game {
 
     private final Cars cars;
+    private final RoundCount roundCount;
 
-    Game(Cars cars) {
+    public Game(Cars cars, RoundCount roundCount) {
         this.cars = cars;
+        this.roundCount = roundCount;
     }
 
-    public void round() {
+    public List<String> round() {
         cars.moveAllByRandom();
+        return cars.getStatusList();
     }
 }

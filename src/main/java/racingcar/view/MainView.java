@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import java.util.List;
 import java.util.Objects;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -8,7 +9,17 @@ import racingcar.domain.Cars;
 import racingcar.domain.RoundCount;
 
 public class MainView {
-    public static void carNameForm(MainController mainController) {
+    public static void gameInfoForm(MainController mainController) {
+        mainController.requestSetGameInfo(carNameForm(), roundCountForm());
+    }
+
+    public static void printStatus(List<String> statusList) {
+        for (String status : statusList) {
+            System.out.println(status);
+        }
+    }
+
+    private static Cars carNameForm() {
         Cars cars = null;
         
         while (Objects.isNull(cars)) {
@@ -16,11 +27,11 @@ public class MainView {
             cars = inputCarNames();
             printNewLine();
         }
-         
-        mainController.requestRoundCountForm();
+
+        return cars;
     }    
 
-    public static void roundCountForm(MainController mainController) {
+    private static RoundCount roundCountForm() {
         RoundCount roundCount = null;
 
         while (Objects.isNull(roundCount)) {
@@ -28,6 +39,8 @@ public class MainView {
             roundCount = inputRoundCount();
             printNewLine();
         }
+
+        return roundCount;
     }
 
     private static Cars inputCarNames() {
