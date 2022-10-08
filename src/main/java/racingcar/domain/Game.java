@@ -19,9 +19,18 @@ public class Game {
     }
 
     public List<String> round() {
+        validateRound();
+        
         currentRound++;
 
         cars.moveAllByRandom();
         return cars.getStatusList();
+    }
+
+    private void validateRound() {
+        if (isOver()) {
+            throw new IllegalStateException(
+                    ErrorMessage.START_ROUND_WHEN_GAME_OVER_ERROR.getMessage());
+        }
     }
 }
