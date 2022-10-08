@@ -4,8 +4,15 @@ public class RoundCount {
     
     public static final int MIN_COUNT = 0;
 
+    private final int count;
+
     public RoundCount(String count) {
         validate(count);
+        this.count = Integer.parseInt(count);
+    }
+
+    public int getCount() {
+        return count;
     }
 
     private void validate(String count) {
