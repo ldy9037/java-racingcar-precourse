@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Car {
+public class Car implements Comparable {
     
     public static final int SPEED = 1;
     public static final int MOVE_CONDITION_NUMBER = 4; 
@@ -22,12 +22,22 @@ public class Car {
         } 
     }
 
+    public String getName() {
+        return carName.getName();
+    }
+
     public Distance getDistance() {
         return distance;
     }
 
     public String getStatus() {
         return String.format("%s : %s", carName.getName(), distance.getProgressBar());
+    }
+
+    @Override
+    public int compareTo(Object obj) {
+        Car that = (Car) obj;
+        return getDistance().compareTo(that.getDistance());
     }
 
     private boolean canMove(JudgmentNumber judgmentNumber) {

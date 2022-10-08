@@ -34,4 +34,21 @@ public class CarsTest {
         // then
         assertThat(status).hasSize(cars.size());        
     }
+
+    @Test
+    @DisplayName("가장 많이 전진한 자동차가 우승한다.")
+    void 이동거리가_가장긴_자동차_확인() {
+        // given
+        Car slowCar = Car.from("slow");
+        Car fastCar1 = Car.from("fast1");
+        Car fastCar2 = Car.from("fast2");
+        
+        // when 
+        fastCar1.move(JudgmentNumber.from(Car.MOVE_CONDITION_NUMBER));   
+        fastCar2.move(JudgmentNumber.from(Car.MOVE_CONDITION_NUMBER));   
+        Cars cars = Cars.of(slowCar, fastCar1, fastCar2);
+
+        // then
+        assertThat(cars.getLongestDistanceCars()).containsExactly(fastCar1, fastCar2);
+    }
 }
