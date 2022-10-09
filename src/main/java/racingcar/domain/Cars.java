@@ -49,10 +49,6 @@ public class Cars {
         return result;
     }
 
-    public int size() {
-        return cars.size();
-    } 
-
     public List<Car> getLongestDistanceCars() {
         List<Car> result = new ArrayList<>();
 
