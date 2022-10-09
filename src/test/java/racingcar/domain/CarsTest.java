@@ -44,8 +44,8 @@ public class CarsTest {
         Car fastCar2 = Car.from("fast2");
         
         // when 
-        fastCar1.move(JudgmentNumber.from(Car.MOVE_CONDITION_NUMBER));   
-        fastCar2.move(JudgmentNumber.from(Car.MOVE_CONDITION_NUMBER));   
+        fastCar1.move();   
+        fastCar2.move();   
         Cars cars = Cars.of(slowCar, fastCar1, fastCar2);
 
         // then

@@ -3,7 +3,6 @@ package racingcar.domain;
 public class Car implements Comparable {
     
     public static final int SPEED = 1;
-    public static final int MOVE_CONDITION_NUMBER = 4; 
     
     private final CarName carName;
     private final Distance distance = new Distance();
@@ -16,10 +15,8 @@ public class Car implements Comparable {
         return new Car(new CarName(carName));
     }
 
-    public void move(JudgmentNumber judgmentNumber) {
-        if (canMove(judgmentNumber)) {
-            distance.plus(SPEED);
-        } 
+    public void move() {
+        distance.plus(SPEED);
     }
 
     public String getName() {
@@ -38,9 +35,5 @@ public class Car implements Comparable {
     public int compareTo(Object obj) {
         Car that = (Car) obj;
         return getDistance().compareTo(that.getDistance());
-    }
-
-    private boolean canMove(JudgmentNumber judgmentNumber) {
-        return (judgmentNumber.getNumber() >= MOVE_CONDITION_NUMBER);
     }
 }

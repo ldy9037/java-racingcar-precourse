@@ -24,7 +24,7 @@ public class CarTest {
         Distance distance = new Distance();
 
         // when
-        car.move(JudgmentNumber.from(Car.MOVE_CONDITION_NUMBER));
+        car.move();
         distance.plus(Car.SPEED);
         
         // then 

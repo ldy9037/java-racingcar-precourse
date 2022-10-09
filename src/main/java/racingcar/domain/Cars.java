@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Cars {
     
+    public static final int MOVE_CONDITION_NUMBER = 4; 
     private static final String SPLIT_STRING = ",";
 
     private final List<Car> cars;
@@ -35,7 +36,7 @@ public class Cars {
 
     public void moveAllByRandom() {
         for (Car car : cars) {
-            car.move(JudgmentNumber.newJudgmentNumber());
+            moveByRandom(car);
         }
     }
 
@@ -79,5 +80,15 @@ public class Cars {
 
     private boolean isLongestDistance(List<Car> result, Car car) {
         return (result.isEmpty() || result.get(0).compareTo(car) == 0);
+    }
+
+    private void moveByRandom(Car car) {
+        if (canMove(JudgmentNumber.newJudgmentNumber())) {
+            car.move();
+        } 
+    }
+
+    private boolean canMove(JudgmentNumber judgmentNumber) {
+        return (judgmentNumber.getNumber() >= MOVE_CONDITION_NUMBER);
     }
 }
