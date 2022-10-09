@@ -18,20 +18,6 @@ public class CarTest {
     }
 
     @Test
-    @DisplayName("숫자가 4이상이면 전진한다.")
-    void 이동시_이동거리_증가() {
-        // given 
-        Distance distance = new Distance();
-
-        // when
-        car.move();
-        distance.plus(Car.SPEED);
-        
-        // then 
-        assertThat(car.getDistance()).isEqualTo(distance);
-    }
-
-    @Test
     @DisplayName("자동차의 상태를 확인한다.")
     void 자동차상태_확인() {
         // when

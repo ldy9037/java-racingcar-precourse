@@ -23,10 +23,6 @@ public class Car implements Comparable {
         return carName.getName();
     }
 
-    public Distance getDistance() {
-        return distance;
-    }
-
     public String getStatus() {
         return String.format("%s : %s", carName.getName(), distance.getProgressBar());
     }
@@ -34,6 +30,6 @@ public class Car implements Comparable {
     @Override
     public int compareTo(Object obj) {
         Car that = (Car) obj;
-        return getDistance().compareTo(that.getDistance());
+        return distance.compareTo(that.distance);
     }
 }
