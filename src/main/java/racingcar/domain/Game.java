@@ -7,21 +7,17 @@ public class Game {
     private final Cars cars;
     private final RoundCount roundCount;
 
-    private int currentRound = 0;
-
     public Game(Cars cars, RoundCount roundCount) {
         this.cars = cars;
         this.roundCount = roundCount;
     }
 
     public boolean isOver() {
-        return (currentRound >= roundCount.getCount());
+        return !roundCount.hasNextRound();
     }
 
-    public List<String> round() {
-        validateRound();
-        
-        currentRound++;
+    public List<String> round() {        
+        roundCount.nextRound();
 
         cars.moveAllByRandom();
         return cars.getStatusList();
@@ -29,12 +25,5 @@ public class Game {
 
     public Winners getWinners() {
         return new Winners(cars.getLongestDistanceCars());
-    }
-
-    private void validateRound() {
-        if (isOver()) {
-            throw new IllegalStateException(
-                    ErrorMessage.START_ROUND_WHEN_GAME_OVER_ERROR.getMessage());
-        }
     }
 }
