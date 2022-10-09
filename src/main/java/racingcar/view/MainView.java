@@ -17,32 +17,32 @@ public class MainView {
     }
 
     public static void printResultInfo(MainController mainController) {
-        System.out.println("실행 결과");
+        PrintMessage.ROUND_RESULT_INFO.println();
         mainController.requestStartRound();
     }
 
     public static void printStatus(MainController mainController, List<String> statusList) {
         for (String status : statusList) {
-            System.out.println(status);
+            PrintMessage.custom(status);
         }
 
-        printNewLine();
+        PrintMessage.newLine();
 
         mainController.requestStartRound();
     }
 
     public static void printWinners(Winners winners) {
-        System.out.print("최종 우승자 : ");
-        System.out.println(String.join(JOIN_STRING, winners.getNames()));
+        PrintMessage.WINNERS_INFO.print();
+        PrintMessage.custom(String.join(JOIN_STRING, winners.getNames()));
     }
 
     private static Cars carNameForm() {
         Cars cars = null;
         
         while (Objects.isNull(cars)) {
-            printCarNameFormMessage();
+            PrintMessage.CAR_NAMES_FORM_INFO.println();
             cars = inputCarNames();
-            printNewLine();
+            PrintMessage.newLine();
         }
 
         return cars;
@@ -52,9 +52,9 @@ public class MainView {
         RoundCount roundCount = null;
 
         while (Objects.isNull(roundCount)) {
-            printRoundCountFormMessage();
+            PrintMessage.ROUND_COUNT_FORM_INFO.println();
             roundCount = inputRoundCount();
-            printNewLine();
+            PrintMessage.newLine();
         }
 
         return roundCount;
@@ -66,7 +66,7 @@ public class MainView {
         try {
             result = Cars.from(Console.readLine());
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            PrintMessage.custom(e.getMessage());
         }
 
         return result;
@@ -78,21 +78,9 @@ public class MainView {
         try {
             result = new RoundCount(Console.readLine());
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+            PrintMessage.custom(e.getMessage());
         }
 
         return result;
-    }
-
-    private static void printRoundCountFormMessage() {
-        System.out.println("시도할 횟수는 몇회인가요?");
-    }
-
-    private static void printCarNameFormMessage() {
-        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-    }
-
-    private static void printNewLine() {
-        System.out.println();
     }
 }
