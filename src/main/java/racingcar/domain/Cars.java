@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Cars {
     
-    public static final int MOVE_CONDITION_NUMBER = 4; 
     private static final String SPLIT_STRING = ",";
 
     private final List<Car> cars;
@@ -83,12 +82,8 @@ public class Cars {
     }
 
     private void moveByRandom(Car car) {
-        if (canMove(JudgmentNumber.newJudgmentNumber())) {
+        if (JudgmentNumber.newJudgmentNumber().canMove()) {
             car.move();
         } 
-    }
-
-    private boolean canMove(JudgmentNumber judgmentNumber) {
-        return (judgmentNumber.getNumber() >= MOVE_CONDITION_NUMBER);
     }
 }

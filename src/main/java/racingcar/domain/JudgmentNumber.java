@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 public class JudgmentNumber {
 
+    public static final int MOVE_CONDITION_NUMBER = 4; 
     public static final int MIN_NUMBER = 0;
     public static final int MAX_NUMBER = 9;
 
@@ -22,8 +23,8 @@ public class JudgmentNumber {
         return new JudgmentNumber(Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER));
     }
 
-    public int getNumber() {
-        return number;
+    public boolean canMove() {
+        return (number >= MOVE_CONDITION_NUMBER);
     }
 
     private void validate(int number) {
