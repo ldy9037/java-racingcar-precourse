@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Car implements Comparable {
+public class Car {
     
     public static final int SPEED = 1;
     
@@ -23,13 +23,11 @@ public class Car implements Comparable {
         return carName.getName();
     }
 
+    public Distance getDistance() {
+        return distance;
+    }
+ 
     public String getStatus() {
         return String.format("%s : %s", carName.getName(), distance.getProgressBar());
-    }
-
-    @Override
-    public int compareTo(Object obj) {
-        Car that = (Car) obj;
-        return distance.compareTo(that.distance);
     }
 }

@@ -24,6 +24,6 @@ public class Game {
     }
 
     public Winners getWinners() {
-        return new Winners(cars.getLongestDistanceCars());
+        return cars.pickWinners();
     }
 }

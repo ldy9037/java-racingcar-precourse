@@ -13,12 +13,17 @@ public class WinnersTest {
     @DisplayName("자동차 이름을 확인한다.")
     void 자동차이름_확인() {
         // given
-        List<Car> cars = Arrays.asList(Car.from("Car1"),Car.from("Car2"));
+        List<Car> cars = Arrays.asList(
+                Car.from("slow"), 
+                Car.from("fast1"),
+                Car.from("fast2"));
 
         // when
+        cars.get(1).move();
+        cars.get(2).move();
         Winners winners = new Winners(cars);
         
         // then
-        assertThat(winners.getNames()).containsExactly("Car1", "Car2");
+        assertThat(winners.getNames()).containsExactly("fast1", "fast2");
     }
 }

@@ -2,7 +2,7 @@ package racingcar.domain;
 
 import java.util.Objects;
 
-public class Distance implements Comparable {
+public class Distance {
     
     public static final int MIN_DISTANCE = 0;
     public static final String PROGRESS_BAR_TYPE = "-";
@@ -35,19 +35,12 @@ public class Distance implements Comparable {
         return (distance < MIN_DISTANCE);
     }
 
-    @Override
-    public int compareTo(Object obj) {
-        Distance that = (Distance) obj;
+    public boolean greaterThan(Distance that) {
+        return (distance > that.distance);
+    }
 
-        if (distance > that.distance) {
-            return 1;
-        }
-
-        if (distance < that.distance) {
-            return -1;
-        }
-
-        return 0;
+    public boolean lessThan(Distance that) {
+        return (distance < that.distance);
     }
 
     @Override

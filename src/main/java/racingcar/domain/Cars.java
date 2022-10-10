@@ -49,32 +49,8 @@ public class Cars {
         return result;
     }
 
-    public List<Car> getLongestDistanceCars() {
-        List<Car> result = new ArrayList<>();
-
-        for (Car car : cars) {
-            addLongestDistanceCars(result, car);
-        }
-
-        return result;
-    }
-
-    private void addLongestDistanceCars(List<Car> result, Car car) {
-        if (isNewLongestDistance(result, car)) {
-            result.clear();
-        }
-
-        if (isLongestDistance(result, car)) {
-            result.add(car);
-        }
-    }
-
-    private boolean isNewLongestDistance(List<Car> result, Car car) {
-        return (!result.isEmpty() && result.get(0).compareTo(car) == -1);
-    }
-
-    private boolean isLongestDistance(List<Car> result, Car car) {
-        return (result.isEmpty() || result.get(0).compareTo(car) == 0);
+    public Winners pickWinners() {
+        return new Winners(cars);
     }
 
     private void moveByRandom(Car car) {
